@@ -1,8 +1,26 @@
-import './GlobalExports';
+import { NotificationsManager } from './NotificationService';
 
-// import { HubConnectionManager } from './HubConnectionManager';
+namespace Notifications {
+  const blazorExtensions: string = 'BlazorExtensions';
+  // define what this extension adds to the window object inside BlazorExtensions
+  const extensionObject = {
+    Notifications: new NotificationsManager()
+  };
 
-// "use strict";
-// HubConnectionManager.initialize();
+  export function initialize(): void {
+    if (typeof window !== 'undefined' && !window[blazorExtensions]) {
+      // when the library is loaded in a browser via a <script> element, make the
+      // following APIs available in global scope for invocation from JS
+      window[blazorExtensions] = {
+        ...extensionObject
+      };
+    } else {
+      window[blazorExtensions] = {
+        ...window[blazorExtensions],
+        ...extensionObject
+      };
+    }
+  }
+}
 
-//TODO: Import all your .TS here and initialize it. This script will be called when the package is referenced and app start.
+Notifications.initialize();

@@ -7,6 +7,7 @@ namespace Blazor.Extensions.Notifications.Test
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddNotifications();
         }
 
         public void Configure(IBlazorApplicationBuilder app)

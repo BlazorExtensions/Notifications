@@ -1,7 +1,77 @@
-﻿@page "/"
+@page "/"
+@inject INotificationService Notifications
 
-<h1>Hello, world!</h1>
+<h1>Desktop Notifications! <small>Basic</small></h1>
+<div class="row">
+    <div class="col-md">
+        <div class="form-group">
+            <label>Supported By Browser?</label>
+            <div class="alert @(isSupportedByBrowser ? "alert-success" : "alert-warning")" role="alert">
+                @(isSupportedByBrowser ? "Notifications are supported!" : "Notifications are not supported by this browser")
+            </div>
+        </div>
+    </div>
+    <div class="col-md">
+        <div class="form-group">
+            <label>User has permission?</label>
+            <div class="alert @(permission == PermissionType.Granted ? "alert-success" : permission == PermissionType.Default ? "alert-secondary" :"alert-warning")" role="alert">
+                The user's permission is: @permission.ToString()
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md">
+        <div class="form-group">
+            <label for="title">Notification Title</label>
+            <input type="text" class="form-control" id="title" placeholder="Enter Title..." bind="@title" />
+            <small class="form-text text-muted">The title will show up at the top of the notification.</small>
+        </div>
+        <div class="form-group">
+            <label for="title">Notification Body</label>
+            <input type="text" class="form-control" id="body" placeholder="Enter Body..." bind="@body" />
+            <small class="form-text text-muted">The body will show up below the title.</small>
+        </div>
+        <div class="form-group">
+            <label for="title">Notification Icon</label>
+            <input type="text" class="form-control" id="icon" placeholder="Enter Icon..." bind="@icon" />
+            <small class="form-text text-muted">The Icon of the notifcation, loaded from wwwroot/images/</small>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-auto mr-auto"></div>
+    <div class="col-auto">
+        <button type="button" class="btn btn-light" onclick="@RequestPermission">Request Permission</button>
+        <button type="button" class="btn btn-primary" onclick="@CreateNotifcationAsync">Create Notification</button>
+    </div>
+</div>
 
-Welcome to your new app.
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+@functions{
+    private PermissionType permission;
+    private bool isSupportedByBrowser;
+    private string title = "My Dummy Title";
+    private string body = "Lorem ipsum dolor sit ...";
+    private string icon = "images/github.png";
+
+    protected override async Task OnInitAsync()
+    {
+        isSupportedByBrowser = await Notifications.IsSupportedByBrowserAsync();
+    }
+    private async Task CreateNotifcationAsync()
+    {
+        NotificationOptions options = new NotificationOptions
+        {
+            Body = body,
+            Icon = icon,
+            Renotify = true // By default a notification is not overwritten, so there can only be one.
+        };
+
+        await Notifications.CreateAsync(title, options);
+    }
+    private async Task RequestPermission()
+    {
+        permission = await Notifications.RequestPermissionAsync();
+    }
+}
