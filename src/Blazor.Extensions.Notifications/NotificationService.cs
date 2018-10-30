@@ -30,10 +30,7 @@ namespace Blazor.Extensions
         }
 
 
-        public Task CreateAsync(string title, NotificationOptions options)
-        {
-            return JSRuntime.Current.InvokeAsync<string>(CreateFunctionName, title, options);
-        }
+        public Task CreateAsync(string title, NotificationOptions options) => JSRuntime.Current.InvokeAsync<string>(CreateFunctionName, title, options);
 
         public Task CreateAsync(string title, string body, string icon)
         {
