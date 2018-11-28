@@ -39,7 +39,7 @@ public void ConfigureServices(IServiceCollection services)
 
 or
 
-### Injhect on a `BlazorComponent` class:
+### Inject on a `BlazorComponent` class:
 
 ```c#
 [Inject] private INotificationService _notificationService { get; set; }
@@ -72,7 +72,7 @@ Please feel free to use the component, open issues, fix bugs or provide feedback
 
 This project is created and maintained by:
 
-- [Benjamin Vertonghen](vertonghenb)
+- [Benjamin Vertonghen](https://github.com/vertonghenb)
 
 The following people are the maintainers of the Blazor Extensions projects:
 
