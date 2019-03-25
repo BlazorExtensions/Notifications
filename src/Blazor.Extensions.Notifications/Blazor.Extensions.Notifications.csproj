@@ -9,7 +9,7 @@
     <RootNamespace>Blazor.Extensions</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Blazor.Browser" Version="0.7.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Blazor" Version="0.9.0-preview3-19154-02" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Blazor.Extensions.Notifications.JS\Blazor.Extensions.Notifications.JS.csproj" PrivateAssets="All" />
