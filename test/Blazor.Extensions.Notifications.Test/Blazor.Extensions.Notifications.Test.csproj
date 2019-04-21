@@ -21,14 +21,4 @@
     <ProjectReference Include="..\..\src\Blazor.Extensions.Notifications\Blazor.Extensions.Notifications.csproj" />
   </ItemGroup>
 
-  <!--<ItemGroup>
-    <Folder Include="wwwroot\images\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Update="Pages\Advanced.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-  </ItemGroup>-->
-
 </Project>
