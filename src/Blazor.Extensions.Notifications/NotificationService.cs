@@ -12,13 +12,20 @@ namespace Blazor.Extensions
         private const string RequestPermissionFunctionName = "BlazorExtensions.Notifications.RequestPermission";
         private const string CreateFunctionName = "BlazorExtensions.Notifications.Create";
 
+        private readonly IJSRuntime runtime;
+
+        public NotificationService(IJSRuntime runtime)
+        {
+            this.runtime = runtime;
+        }
+
         public Task<bool> IsSupportedByBrowserAsync()
         {
-            return JSRuntime.Current.InvokeAsync<bool>(AreSupportedFunctionName);
+            return this.runtime.InvokeAsync<bool>(AreSupportedFunctionName);
         }
         public async Task<PermissionType> RequestPermissionAsync()
         {
-            string permission = await JSRuntime.Current.InvokeAsync<string>(RequestPermissionFunctionName);
+            string permission = await this.runtime.InvokeAsync<string>(RequestPermissionFunctionName);
 
             if (permission.Equals("granted", StringComparison.InvariantCultureIgnoreCase))
                 return PermissionType.Granted;
@@ -30,7 +37,7 @@ namespace Blazor.Extensions
         }
 
 
-        public Task CreateAsync(string title, NotificationOptions options) => JSRuntime.Current.InvokeAsync<string>(CreateFunctionName, title, options);
+        public Task CreateAsync(string title, NotificationOptions options) => this.runtime.InvokeAsync<string>(CreateFunctionName, title, options);
 
         public Task CreateAsync(string title, string body, string icon)
         {
@@ -40,7 +47,7 @@ namespace Blazor.Extensions
                 Icon = icon,
             };
 
-            return JSRuntime.Current.InvokeAsync<string>(CreateFunctionName, title, options);
+            return this.runtime.InvokeAsync<string>(CreateFunctionName, title, options);
         }
     }
 }

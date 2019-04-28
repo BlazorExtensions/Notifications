@@ -1,22 +1,28 @@
-﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  
   <PropertyGroup>
     <Title>Blazor Extensions Notifications</Title>
     <Description>HTML5 Notifications API for ASP.NET Core Blazor.</Description>
   </PropertyGroup>
+  
   <PropertyGroup>
-    <OutputType>library</OutputType>
+    <OutputType>Library</OutputType>
     <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);IncludeP2POutput</TargetsForTfmSpecificBuildOutput>
     <RootNamespace>Blazor.Extensions</RootNamespace>
   </PropertyGroup>
+  
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Blazor.Browser" Version="0.7.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Blazor" Version="3.0.0-preview4-19216-03" />
   </ItemGroup>
+  
   <ItemGroup>
     <ProjectReference Include="..\Blazor.Extensions.Notifications.JS\Blazor.Extensions.Notifications.JS.csproj" PrivateAssets="All" />
   </ItemGroup>
+  
   <Target Name="IncludeP2POutput">
     <ItemGroup>
       <BuildOutputInPackage Include="$(OutputPath)Blazor.Extensions.Notifications.JS.dll" />
     </ItemGroup>
   </Target>
+  
 </Project>
