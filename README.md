@@ -46,6 +46,12 @@ or
 ```
 
 ### Create a notification
+#### Using a Function (basic)
+```csharp
+await NotificationService.CreateAsync("Title", "Description", "images/github.png");
+```
+
+#### Using NotificationOptions (advanced)
 ```csharp
 NotificationOptions options = new NotificationOptions
 {
