@@ -1,7 +1,7 @@
 interface INotificationsManager {
   IsSupported(): boolean;
   RequestPermission(): Promise<string>;
-  Create(title: string, options: object): object;
+  Create(title: string, options: object): void;
 }
 
 export class NotificationsManager implements INotificationsManager {
@@ -19,8 +19,7 @@ export class NotificationsManager implements INotificationsManager {
     return false;
   }
 
-  public Create = (title: string, options: object): object => {
-    var note = new Notification(title, options);
-    return note;
+  public Create = (title: string, options: object): void => {
+    new Notification(title, options);
   }
 }

@@ -16,7 +16,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.Extensions.Notifications.JS", "src\Blazor.Extensions.Notifications.JS\Blazor.Extensions.Notifications.JS.csproj", "{1C49147F-7C73-4962-A71C-6A193970D058}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor.Extensions.Notifications.Test", "test\Blazor.Extensions.Notifications.Test\Blazor.Extensions.Notifications.Test.csproj", "{FD4DBABD-EC5B-4A75-BEEA-B9339B336ED5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.Extensions.Notifications.Test", "test\Blazor.Extensions.Notifications.Test\Blazor.Extensions.Notifications.Test.csproj", "{FD4DBABD-EC5B-4A75-BEEA-B9339B336ED5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
