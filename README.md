@@ -22,6 +22,15 @@ For some other references of what the API does see the example [demo](https://we
 
 ## Usage
 
+### Setup
+You will need to include the following JS file in your `index.html` (Blazor WebAssembly) or `_Host.cshtml` (Blazor Server).
+
+Add the JS script at the bottom of the page using the following script tag.
+
+```html
+<script src="_content/Blazor.Extensions.Notifications/blazor.extensions.notifications.js"></script>
+```
+
 ### Add `INotificationService` via DI
 > Scoped by default.
 ```csharp

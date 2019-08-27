@@ -14,8 +14,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.Extensions.Notifications.JS", "src\Blazor.Extensions.Notifications.JS\Blazor.Extensions.Notifications.JS.csproj", "{1C49147F-7C73-4962-A71C-6A193970D058}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.Extensions.Notifications.Test", "test\Blazor.Extensions.Notifications.Test\Blazor.Extensions.Notifications.Test.csproj", "{FD4DBABD-EC5B-4A75-BEEA-B9339B336ED5}"
 EndProject
 Global
@@ -40,18 +38,6 @@ Global
 		{9378C7BF-0899-4835-B8FB-099292C8C63D}.Release|x64.Build.0 = Release|Any CPU
 		{9378C7BF-0899-4835-B8FB-099292C8C63D}.Release|x86.ActiveCfg = Release|Any CPU
 		{9378C7BF-0899-4835-B8FB-099292C8C63D}.Release|x86.Build.0 = Release|Any CPU
-		{1C49147F-7C73-4962-A71C-6A193970D058}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1C49147F-7C73-4962-A71C-6A193970D058}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1C49147F-7C73-4962-A71C-6A193970D058}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{1C49147F-7C73-4962-A71C-6A193970D058}.Debug|x64.Build.0 = Debug|Any CPU
-		{1C49147F-7C73-4962-A71C-6A193970D058}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{1C49147F-7C73-4962-A71C-6A193970D058}.Debug|x86.Build.0 = Debug|Any CPU
-		{1C49147F-7C73-4962-A71C-6A193970D058}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1C49147F-7C73-4962-A71C-6A193970D058}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1C49147F-7C73-4962-A71C-6A193970D058}.Release|x64.ActiveCfg = Release|Any CPU
-		{1C49147F-7C73-4962-A71C-6A193970D058}.Release|x64.Build.0 = Release|Any CPU
-		{1C49147F-7C73-4962-A71C-6A193970D058}.Release|x86.ActiveCfg = Release|Any CPU
-		{1C49147F-7C73-4962-A71C-6A193970D058}.Release|x86.Build.0 = Release|Any CPU
 		{FD4DBABD-EC5B-4A75-BEEA-B9339B336ED5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FD4DBABD-EC5B-4A75-BEEA-B9339B336ED5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD4DBABD-EC5B-4A75-BEEA-B9339B336ED5}.Debug|x64.ActiveCfg = Debug|Any CPU
@@ -70,7 +56,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{9378C7BF-0899-4835-B8FB-099292C8C63D} = {B286BCBD-DAD8-4DE7-9334-3DE18DF233AF}
-		{1C49147F-7C73-4962-A71C-6A193970D058} = {B286BCBD-DAD8-4DE7-9334-3DE18DF233AF}
 		{FD4DBABD-EC5B-4A75-BEEA-B9339B336ED5} = {20DAA632-F8AD-4C5F-9E5F-FC82B7CB56A7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution

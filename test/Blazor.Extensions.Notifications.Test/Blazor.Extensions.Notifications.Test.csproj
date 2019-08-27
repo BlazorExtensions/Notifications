@@ -17,7 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Blazor.Extensions.Notifications.JS\Blazor.Extensions.Notifications.JS.csproj" />
     <ProjectReference Include="..\..\src\Blazor.Extensions.Notifications\Blazor.Extensions.Notifications.csproj" />
   </ItemGroup>
 

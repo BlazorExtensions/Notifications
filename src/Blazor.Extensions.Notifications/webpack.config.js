@@ -16,10 +16,10 @@ module.exports = {
     ]
   },
   entry: {
-    "blazor.extensions.notifications": "./src/Initialize.ts"
+    "blazor.extensions.notifications": "./client/Initialize.ts"
   },
   output: {
-    path: path.join(__dirname, "/dist"),
+    path: path.join(__dirname, "/wwwroot"),
     filename: "[name].js"
   }
 };

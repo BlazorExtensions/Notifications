@@ -1,28 +1,40 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
-  
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
   <PropertyGroup>
     <Title>Blazor Extensions Notifications</Title>
     <Description>HTML5 Notifications API for ASP.NET Core Blazor.</Description>
   </PropertyGroup>
-  
+
   <PropertyGroup>
-    <OutputType>Library</OutputType>
-    <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);IncludeP2POutput</TargetsForTfmSpecificBuildOutput>
+    <RazorLangVersion>3.0</RazorLangVersion>
     <RootNamespace>Blazor.Extensions</RootNamespace>
   </PropertyGroup>
-  
+
+  <PropertyGroup>
+    <ResolveStaticWebAssetsInputsDependsOn>RunWebpack;$(ResolveCurrentProjectStaticWebAssetsInputs)</ResolveStaticWebAssetsInputsDependsOn>
+    <!-- VS's FastUpToDateCheck doesn't consider .ts file changes, so it's necessary to disable it to get incremental builds to work correctly (albeit not as fast as if FastUpToDateCheck did work for them) -->
+    <DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
+  </PropertyGroup>
+
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Blazor" Version="3.0.0-preview8.19405.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Components" Version="3.0.0-preview8.19405.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="3.0.0-preview8.19405.7" />
   </ItemGroup>
-  
+
   <ItemGroup>
-    <ProjectReference Include="..\Blazor.Extensions.Notifications.JS\Blazor.Extensions.Notifications.JS.csproj" PrivateAssets="All" />
+    <WebpackInputs Include="client\Initialize.ts" />
+    <Content Remove="*.json" />
+    <None Include="*.json" />
   </ItemGroup>
-  
-  <Target Name="IncludeP2POutput">
-    <ItemGroup>
-      <BuildOutputInPackage Include="$(OutputPath)Blazor.Extensions.Notifications.JS.dll" />
-    </ItemGroup>
+
+  <Target Name="EnsureNpmRestored" Condition="!Exists('node_modules')">
+    <Message Importance="high" Text="Restoring dependencies using 'npm'. This may take several minutes..." />
+    <Exec Command="npm install" />
   </Target>
-  
+
+  <Target Name="RunWebpack" Inputs="@(WebpackInputs)" Outputs="wwwroot\blazor.extensions.notifications.js" DependsOnTargets="EnsureNpmRestored">
+    <RemoveDir Directories="wwwroot" />
+    <Exec Command="npm run build" />
+  </Target>
+
 </Project>
