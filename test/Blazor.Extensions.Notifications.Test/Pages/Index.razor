@@ -24,26 +24,26 @@
     <div class="col-md">
         <div class="form-group">
             <label for="title">Notification Title</label>
-            <input type="text" class="form-control" id="title" placeholder="Enter Title..." bind="@title" />
+            <input type="text" class="form-control" id="title" placeholder="Enter Title..." @bind="title" />
             <small class="form-text text-muted">The title will show up at the top of the notification.</small>
         </div>
         <div class="form-group">
             <label for="title">Notification Body</label>
-            <input type="text" class="form-control" id="body" placeholder="Enter Body..." bind="@body" />
+            <input type="text" class="form-control" id="body" placeholder="Enter Body..." @bind="body" />
             <small class="form-text text-muted">The body will show up below the title.</small>
         </div>
         <div class="form-group">
             <label for="title">Notification Icon</label>
-            <input type="text" class="form-control" id="icon" placeholder="Enter Icon..." bind="@icon" />
-            <small class="form-text text-muted">The Icon of the notifcation, loaded from wwwroot/images/</small>
+            <input type="text" class="form-control" id="icon" placeholder="Enter Icon..." @bind="icon" />
+            <small class="form-text text-muted">The Icon of the notification, loaded from wwwroot/images/</small>
         </div>
     </div>
 </div>
 <div class="row">
     <div class="col-auto mr-auto"></div>
     <div class="col-auto">
-        <button type="button" class="btn btn-light" onclick="@RequestPermission">Request Permission</button>
-        <button type="button" class="btn btn-primary" onclick="@CreateNotifcationAsync">Create Notification</button>
+        <button type="button" class="btn btn-light"  @onclick="RequestPermission">Request Permission</button>
+        <button type="button" class="btn btn-primary" @onclick="CreateNotifcationAsync">Create Notification</button>
     </div>
 </div>
 
@@ -55,13 +55,14 @@
     private string body = "Lorem ipsum dolor sit ...";
     private string icon = "images/github.png";
 
-    protected override async Task OnInitAsync()
+    protected override async Task OnInitializedAsync()
     {
         isSupportedByBrowser = await Notifications.IsSupportedByBrowserAsync();
     }
+
     private async Task CreateNotifcationAsync()
     {
-        NotificationOptions options = new NotificationOptions
+        var options = new NotificationOptions
         {
             Body = body,
             Icon = icon,
