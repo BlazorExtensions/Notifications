@@ -8,7 +8,7 @@ steps:
   - task: DotNetCoreInstaller@0
     inputs:
       packageType: 'sdk'
-      version: 3.1.x
+      version: '3.1.x'
 
   - task: DotNetCoreCLI@2
     inputs:
@@ -28,5 +28,5 @@ steps:
       configuration: '$(buildConfiguration)'
       versioningScheme: byPrereleaseNumber
       majorVersion: '0'
-      minorVersion: '1'
+      minorVersion: '2'
       patchVersion: '0'
