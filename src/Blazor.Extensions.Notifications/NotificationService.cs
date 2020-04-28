@@ -1,7 +1,5 @@
 using Microsoft.JSInterop;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Blazor.Extensions
@@ -19,7 +17,7 @@ namespace Blazor.Extensions
             this.runtime = runtime;
         }
 
-        public Task<bool> IsSupportedByBrowserAsync()
+        public ValueTask<bool> IsSupportedByBrowserAsync()
         {
             return this.runtime.InvokeAsync<bool>(AreSupportedFunctionName);
         }
@@ -37,9 +35,9 @@ namespace Blazor.Extensions
         }
 
 
-        public Task CreateAsync(string title, NotificationOptions options) => this.runtime.InvokeAsync<string>(CreateFunctionName, title, options);
+        public ValueTask<string> CreateAsync(string title, NotificationOptions options) => this.runtime.InvokeAsync<string>(CreateFunctionName, title, options);
 
-        public Task CreateAsync(string title, string body, string icon)
+        public ValueTask<string> CreateAsync(string title, string body, string icon)
         {
             NotificationOptions options = new NotificationOptions
             {
