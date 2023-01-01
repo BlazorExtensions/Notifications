@@ -9,10 +9,10 @@
   },
   "devDependencies": {
     "@types/emscripten": "0.0.32",
-    "webpack": "^4.30.0",
-    "webpack-cli": "^3.3.1",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1",
     "typescript": "^3.4.5",
-    "ts-loader": "^5.4.5"
+    "ts-loader": "^9.4.2"
   },
   "dependencies": {}
 }
